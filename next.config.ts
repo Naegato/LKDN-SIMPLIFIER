@@ -1,7 +1,7 @@
 import { watch } from 'fs';
 import type { NextConfig } from 'next';
 
-import { ENV_EXAMPLE_PATH, generateEnvKeys } from './plugins/env-keys-generator';
+import { ENV_EXAMPLE_PATH, generateEnvKeys } from './scripts/generate-env-keys';
 
 generateEnvKeys();
 

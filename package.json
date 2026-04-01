@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "generate:env-keys": "bun scripts/generate-env-keys.ts",
+    "generate:prisma": "prisma generate",
+    "generate": "bun run generate:prisma && bun run generate:env-keys",
     "prepare": "husky"
   },
   "dependencies": {

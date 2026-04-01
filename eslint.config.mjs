@@ -11,7 +11,7 @@ const eslintConfig = defineConfig([
   // Disable all ESLint rules that would conflict with Prettier
   prettierConfig,
   // Override default ignores of eslint-config-next.
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'generated/**']),
   {
     plugins: {
       'simple-import-sort': simpleImportSort,

@@ -11,6 +11,11 @@ jobs:
     name: Lint & Build
     runs-on: ubuntu-latest
 
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://dummy:dummy@localhost:5432/dummy' }}
+      LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID || 'dummy' }}
+      LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET || 'dummy' }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -21,13 +26,14 @@ jobs:
       - name: Install dependencies
         run: bun install --frozen-lockfile
 
+      - name: Generate
+        run: bun run generate
+
       - name: Lint
         run: bun lint
 
+      - name: Typecheck
+        run: bun run typecheck
+
       - name: Build
         run: bun run build
-        env:
-          # Required env vars for the build — set these as GitHub Actions secrets
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
-          LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
