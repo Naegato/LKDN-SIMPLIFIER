@@ -11,6 +11,11 @@ jobs:
     name: Lint & Build
     runs-on: ubuntu-latest
 
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL || 'postgresql://dummy:dummy@localhost:5432/dummy' }}
+      LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID || 'dummy' }}
+      LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET || 'dummy' }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -32,7 +37,3 @@ jobs:
 
       - name: Build
         run: bun run build
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
-          LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
