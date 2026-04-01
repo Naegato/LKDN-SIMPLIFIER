@@ -26,3 +26,7 @@ export function generateEnvKeys() {
   mkdirSync(dirname(OUT_PATH), { recursive: true });
   writeFileSync(OUT_PATH, content);
 }
+
+if (import.meta.main) {
+  generateEnvKeys();
+}
