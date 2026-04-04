@@ -17,6 +17,7 @@
     "@prisma/adapter-pg": "^7.6.0",
     "@prisma/client": "^7.6.0",
     "better-auth": "^1.5.6",
+    "defu": "^6.1.6",
     "dotenv": "^17.3.1",
     "next": "16.2.1",
     "react": "19.2.4",
