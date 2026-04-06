@@ -12,3 +12,9 @@ up: generate
 
 docker-up:
 	docker compose up -d --wait
+
+lint:
+	bun lint
+
+lint-fix:
+	bun lint --fix

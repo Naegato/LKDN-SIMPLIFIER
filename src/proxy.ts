@@ -16,5 +16,7 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/dashboard'],
+  matcher: [
+    '/((?!login|register|api/auth|_next/static|_next/image|favicon\\.ico|sitemap\\.xml|robots\\.txt).*)',
+  ],
 };
